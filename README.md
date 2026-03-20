@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/safe-parse)](https://www.npmjs.com/package/@philiprehberger/safe-parse)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Safe parsing for primitives — numbers, booleans, dates, JSON from unknown strings.
+Safe parsing for primitives — numbers, booleans, dates, JSON from unknown strings
 
 ## Requirements
 
