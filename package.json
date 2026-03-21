@@ -1,6 +1,6 @@
 {
   "name": "@philiprehberger/safe-parse",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Safe parsing for primitives — numbers, booleans, dates, JSON from unknown strings",
   "type": "module",
   "main": "./dist/index.cjs",
