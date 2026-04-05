@@ -1,8 +1,8 @@
 # @philiprehberger/safe-parse
 
-[![CI](https://github.com/philiprehberger/safe-parse/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/safe-parse/actions/workflows/ci.yml)
+[![CI](https://github.com/philiprehberger/ts-safe-parse/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/ts-safe-parse/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/safe-parse.svg)](https://www.npmjs.com/package/@philiprehberger/safe-parse)
-[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/safe-parse)](https://github.com/philiprehberger/safe-parse/commits/main)
+[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/ts-safe-parse)](https://github.com/philiprehberger/ts-safe-parse/commits/main)
 
 Safe parsing for primitives — numbers, booleans, dates, JSON from unknown strings
 
@@ -113,11 +113,11 @@ npm test
 
 If you find this project useful:
 
-⭐ [Star the repo](https://github.com/philiprehberger/safe-parse)
+⭐ [Star the repo](https://github.com/philiprehberger/ts-safe-parse)
 
-🐛 [Report issues](https://github.com/philiprehberger/safe-parse/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+🐛 [Report issues](https://github.com/philiprehberger/ts-safe-parse/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
-💡 [Suggest features](https://github.com/philiprehberger/safe-parse/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
+💡 [Suggest features](https://github.com/philiprehberger/ts-safe-parse/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
 
 ❤️ [Sponsor development](https://github.com/sponsors/philiprehberger)
 
