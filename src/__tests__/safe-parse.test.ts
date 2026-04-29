@@ -13,6 +13,7 @@ import {
   parseBooleanOrDefault,
   parseDateOrDefault,
   parseJSONOrDefault,
+  parseURL,
 } from "../../dist/index.js";
 
 describe("parseNumber", () => {
@@ -262,5 +263,39 @@ describe("OrDefault variants", () => {
   it("parseJSONOrDefault returns fallback on failure", () => {
     assert.deepStrictEqual(parseJSONOrDefault("invalid", { x: 1 }), { x: 1 });
     assert.deepStrictEqual(parseJSONOrDefault('{"a":2}', { x: 1 }), { a: 2 });
+  });
+});
+
+describe("parseURL", () => {
+  it("parses absolute http(s) URLs by default", () => {
+    const url = parseURL("https://example.com/path?q=1");
+    assert.ok(url instanceof URL);
+    assert.strictEqual(url?.hostname, "example.com");
+  });
+
+  it("rejects non-default protocols by default", () => {
+    assert.strictEqual(parseURL("ftp://example.com"), undefined);
+    assert.strictEqual(parseURL("javascript:alert(1)"), undefined);
+  });
+
+  it("respects a custom protocols allow-list", () => {
+    const url = parseURL("ftp://example.com", { protocols: ["ftp:"] });
+    assert.ok(url instanceof URL);
+    assert.strictEqual(parseURL("https://example.com", { protocols: ["ftp:"] }), undefined);
+  });
+
+  it("allows any protocol when protocols is null", () => {
+    assert.ok(parseURL("javascript:foo", { protocols: null }) instanceof URL);
+  });
+
+  it("returns undefined for invalid input", () => {
+    assert.strictEqual(parseURL("not a url"), undefined);
+    assert.strictEqual(parseURL(""), undefined);
+    assert.strictEqual(parseURL(123 as unknown), undefined);
+  });
+
+  it("resolves relative inputs against a base", () => {
+    const url = parseURL("/foo", { base: "https://example.com" });
+    assert.strictEqual(url?.href, "https://example.com/foo");
   });
 });

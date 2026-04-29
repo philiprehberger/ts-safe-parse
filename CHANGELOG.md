@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+- Add `parseURL(input, options?)` for safe URL parsing with optional protocol allow-list (defaults to `http:`/`https:`) and `base` for resolving relative inputs
+
 ## 0.1.3
 
 - Fix README GitHub URLs to use correct repo name (ts-safe-parse)

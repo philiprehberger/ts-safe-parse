@@ -59,6 +59,18 @@ parseJSON('{"key": "value"}');   // { key: "value" }
 parseJSON("invalid json");      // undefined
 ```
 
+### Parse URLs
+
+```ts
+import { parseURL } from "@philiprehberger/safe-parse";
+
+parseURL("https://example.com");                       // URL instance
+parseURL("ftp://example.com");                         // undefined (default protocols allow only http/https)
+parseURL("ftp://example.com", { protocols: ["ftp:"] }); // URL instance
+parseURL("/foo", { base: "https://example.com" });     // URL → https://example.com/foo
+parseURL("javascript:alert(1)", { protocols: null });  // URL — pass null to allow any protocol
+```
+
 ### Batch coerce with schema
 
 ```ts
@@ -94,12 +106,20 @@ parseBooleanOrDefault("yes", false); // true
 | `parseBoolean(input)` | `unknown` | `boolean \| undefined` |
 | `parseDate(input)` | `unknown` | `Date \| undefined` |
 | `parseJSON<T>(input)` | `unknown` | `T \| undefined` |
+| `parseURL(input, options?)` | `unknown` | `URL \| undefined` |
 | `parseArray(input, separator?)` | `unknown` | `string[] \| undefined` |
 | `coerce(input, schema)` | `Record<string, unknown>` | `CoerceResult<S>` |
 | `parseNumberOrDefault(input, fallback)` | `unknown, number` | `number` |
 | `parseBooleanOrDefault(input, fallback)` | `unknown, boolean` | `boolean` |
 | `parseDateOrDefault(input, fallback)` | `unknown, Date` | `Date` |
 | `parseJSONOrDefault<T>(input, fallback)` | `unknown, T` | `T` |
+
+### `ParseURLOptions`
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `protocols` | `readonly string[] \| null` | `['http:', 'https:']` | Allowed protocols. `null` allows any. |
+| `base` | `string \| URL` | `undefined` | Base URL used to resolve relative inputs. |
 
 ## Development
 
